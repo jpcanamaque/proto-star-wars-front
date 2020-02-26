@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html {
+    background: black;
+}
+
+section {
+    text-align: center;
+    font-family: "Roboto" !important;
+}
+
+img {
+    height: auto;
+    max-width: 300px;
+}
+
+.button {
+    color: black !important;
+    box-shadow: 0 20px #ffdd57b7;
+}
+
+.button:hover {
+    margin-top: 10px;
+    box-shadow: 0 10px #ffdd57b7;
+    background: #ffe169 !important;
+}
+
+
+#result_view_container .question {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#result_view_container .answer {
+    color: yellow;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    white-space: pre-wrap;
+}
