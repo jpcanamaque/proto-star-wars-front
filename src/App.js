@@ -9,22 +9,32 @@ import './css/style.css';
 class App extends React.Component {
   constructor (props) {
     super(props);
-    // this.state = {
-    //   longest_crawl : ''
-    //   , most_char_appearance : ''
-    //   , most_spec_appearance : ''
-    //   , most_vehicle_pilot : ''
-    // }
+    this.state = this.getInitialState();
     this.setAppState = this.setAppState.bind(this);
   }
 
-  setAppState (data) {
-    this.setState({
-      longest_crawl : data[0]
-      , most_char_appearance: data[1]
-      , most_spec_appearance: data[2]
-      , most_vehicle_pilot: data[3]
-    })
+  getInitialState()  {
+    return {
+      longest_crawl : []
+      , most_char_appearance: []
+      , most_spec_appearance: []
+      , most_vehicle_pilot: []
+      , isclicked : false
+    };
+  }
+
+  setAppState (data, isclicked) {
+    if(data !== null) {
+      this.setState({
+        longest_crawl : data[0]
+        , most_char_appearance: data[1]
+        , most_spec_appearance: data[2]
+        , most_vehicle_pilot: data[3]
+        , isclicked
+      })
+    } else {
+      this.setState(this.getInitialState());
+    }
   }
 
   render () {
@@ -37,7 +47,7 @@ class App extends React.Component {
               />
           </section>
           <section className = "section">
-              <Button setAppState = {this.setAppState} />
+              <Button setAppState = {this.setAppState} data = {this.state} />
 
           </section>
           <section className = "section">

@@ -7,8 +7,8 @@ class ResultView extends Component {
         let most_char = '';
         let most_spec = '';
         let most_vehicle_pilot = '';
-
-        if(this.props.results !== null) {
+        
+        if(this.props.results.isclicked) {
             this.props.results.longest_crawl.data.forEach((v) => {
                 longest_crawl = `${v.title} \n`;
             });
@@ -30,7 +30,7 @@ class ResultView extends Component {
         }
 
         return (
-            <div id = "result_view_container">
+            <div id = 'result_view_container'>
                 <div className = "question"> Which of all StarWars movies has longest opening crawl?</div>
                 <div className = "answer">
                    {longest_crawl}

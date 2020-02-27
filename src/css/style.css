@@ -25,6 +25,16 @@ img {
     background: #ffe169 !important;
 }
 
+.button.is-clicked {
+    margin-top: 10px;
+    color: gray !important;
+    box-shadow: 0 10px #ffdd57b7;
+    background: #ffe169 !important;
+}
+
+#result_view_container {
+    display: none;
+}
 
 #result_view_container .question {
     color: white;

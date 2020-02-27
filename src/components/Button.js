@@ -19,17 +19,29 @@ class Button extends Component {
     }
 
     execute(e) {
-        axios.all([this.getLongestCrawl(), this.getMostCharAppearance(), this.getMostSpecAppearance(), this.getMostVehiclePilot()])
-            .then(axios.spread((...resp) => {
-                this.props.setAppState(resp);
-            })).catch(errors => {
-                console.log(errors);
-            });
+        if(!this.props.data.isclicked) {
+            axios.all([this.getLongestCrawl(), this.getMostCharAppearance(), this.getMostSpecAppearance(), this.getMostVehiclePilot()])
+                .then(axios.spread((...resp) => {
+                    this.props.setAppState(resp, true);
+                    document.getElementById('result_view_container').style.display = "block";
+                })).catch(errors => {
+                    console.log(errors);
+                });
+        } else {
+            document.getElementById('result_view_container').style.display = "none";
+            this.props.setAppState(null, false)
+        }
     }
     
     render() {
         return (
-            <div className = 'btn-starwars button is-warning is-size-3' onClick = { (e) => this.execute(e) }>
+            <div 
+                className = {
+                    this.props.data.isclicked 
+                    ? 'btn-starwars button is-warning is-size-3 is-clicked' 
+                    : 'btn-starwars button is-warning is-size-3'
+                } 
+                onClick = { (e) => this.execute(e) }>
                 &#9733; Do. Or do not. There is no try. &#9733;
             </div>
         );
